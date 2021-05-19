@@ -1,0 +1,60 @@
+{% extends 'admin/base_site.html' %}
+{% load suit_tags static %}
+
+{# Following is an example how to extend admin by custom CSS or JS files #}
+{# Add extra CSS for admin #}
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/demo.css' %}">
+{% endblock %}
+
+{#{% block foot %}#}
+{#    {{ block.super }}#}
+{#    <script type="text/javascript"></script>#}
+{#{% endblock %}#}
+
+
+{# Switch for demonstration purposes, not indended for production use #}
+{% block usertools %}
+    {% with suit_layout='layout'|suit_conf:request %}
+        {% if suit_layout == 'horizontal' %}
+            <a href="{% url 'admin:index' %}?__suit_layout=vertical" class="demo-layout-switch">
+                Cambiar a Modo vertical
+            </a>
+        {% else %}
+            <a href="{% url 'admin:index' %}?__suit_layout=horizontal" class="demo-layout-switch">
+                Cambiar a Modo horizontal
+            </a>
+        {% endif %}
+
+        {{ block.super }}
+
+    {% endwith %}
+
+    <style type="text/css">
+        body #header a.demo-layout-switch {
+            color: #687086;
+        }
+
+        body.suit_layout_vertical .demo-layout-switch {
+            background-color: #383D4B;
+            order: 10;
+            text-align: center;
+            padding: .5rem 0;
+        }
+    </style>
+{% endblock %}
+
+
+{% block title %}{{ _('PANEL DE ADMINISTRACIÓN') }} | {{ _('SAP') }}{% endblock %}
+
+{% block footer_links %}
+    Soporte: <a href="mailto:diegoasencio96@gmail.com" target="_blank">diegoasencio96@gmail.com</a>
+{% endblock %}
+
+{% block copyright %}
+    SAP v0.0.1 - Sistema de Información para Gestión del Alumbrado Público
+    <span class="hidden-md-down"></span>
+    <br>Desarrollado por <a target="_blank" href="https://www.diegoasencio.co" target="_blank">h4x0rc0d3r</a>.
+    <br>Todos los derechos reservados - 2021
+{% endblock %}

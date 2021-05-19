@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- saved from url=(0146)https://cdn.krxd.net/partnerjs/xdi/proxy.3d2100fd7107262ecb55ce6847f01fa5.html#!kxcid=u0wa8k5n3&kxt=https%3A%2F%2Fwww.tiendacerca.co&kxcl=cdn&kxp= -->
+<html><script type="text/javascript" src="./2db4bb60-5671-4a82-a796-b67995be59bb"></script><script async="" src="./controltag.js.e4cdf7ad64ebac73f207c1ce55cc1727"></script><script type="application/json" id="luminous-options" class="luminous-options" data-changed="false" data-from="storage.sync">{"disabled":{"WebAPIs":{},"addEventListener":{},"handleEvent":{}},"injection_disabled":false,"collect_details":false}</script><script type="text/javascript" async="" src="./u0wa8k5n3.js"></script><script id="luminous-interceptor" class="luminous-interceptor" type="text/javascript" nonce="3b34aae43a" data-from="contentScript">var should_luminous_run=1==document.getElementsByClassName("luminous-interceptor").length,remove_duplicated_luminous_elements=function(e){var t=document.getElementsByClassName(e),n=t.length;if(1<n)for(;n--;)0<n&&t[n].remove()};if(remove_duplicated_luminous_elements("luminous-data"),remove_duplicated_luminous_elements("luminous-options"),remove_duplicated_luminous_elements("luminous-interceptor"),should_luminous_run){var original_window_setTimeout=window.setTimeout,original_window_setInterval=window.setInterval,cached_options={injection_disabled:!1},collect_details=!1,json_options_element=void 0,get_options=function(){return(json_options_element=json_options_element||document.getElementById("luminous-options"))&&"true"==json_options_element.getAttribute("data-changed")&&(cached_options=JSON.parse(json_options_element.innerHTML),collect_details=cached_options.collect_details,json_options_element.setAttribute("data-changed","false")),cached_options},luminous_data_element=document.getElementById("luminous-data"),is_allowed=function(e,t){var n=get_options();return n.disabled||(n.disabled={}),n.disabled[e]||(n.disabled[e]={}),!n.disabled[e][t]},dispatch_stack_fifo=[],dispatch_stack_timer=void 0,process_dispatch_stack=function(){clearTimeout(dispatch_stack_timer),dispatch_stack_timer=void 0,luminous_data_element.getAttribute("data-ready")?luminous_data_element.dispatchEvent(new MessageEvent("luminous-message",{data:dispatch_stack_fifo})):dispatch_stack_timer=original_window_setTimeout(function(){process_dispatch_stack()},100,"__INTERNAL_LUMINOUS_CODE__"),dispatch_stack_fifo=[]},increment_counter=function(e,t,n,o,i,r){original_window_setTimeout(function(e,t,n,o,i,r,a){if(collect_details&&r)r=(""+r).slice(0,400);else r=void 0;dispatch_stack_fifo.push({kind:t,type:n,time:a,target:i.toString(),code:r,allowed:o,domain:document.location.host,url:document.location.href}),dispatch_stack_timer=dispatch_stack_timer||original_window_setTimeout(function(){process_dispatch_stack()},100,"__INTERNAL_LUMINOUS_CODE__")},0,"__INTERNAL_LUMINOUS_CODE__",e,t,n,o,i,r)};if(!get_options().injection_disabled){var removeEventListener_alias={},original_EventTarget_removeEventListener=EventTarget.prototype.removeEventListener;EventTarget.prototype.removeEventListener=function(e,t,n){var o=original_EventTarget_removeEventListener.call(this,e,t,n);if(removeEventListener_alias[e]&&removeEventListener_alias[e][t]){var i=original_EventTarget_removeEventListener.call(this,e,removeEventListener_alias[e][t],n);return o||i}return o};var original_EventTarget_addEventListener=EventTarget.prototype.addEventListener;if(EventTarget.prototype.addEventListener=function(e,o,t){var i=this,r=e;if("string"!=typeof r&&(r=JSON.stringify(e)),get_options().injection_disabled)return original_EventTarget_addEventListener.call(i,e,o,t);if(is_allowed("addEventListener",r)){var n=performance.now(),a={handleEvent:function(e){if(is_allowed("handleEvent",r)){var t=performance.now();if("function"==typeof o)var n=o(e);else if(o&&"function"==typeof o.handleEvent)n=o.handleEvent(e);return increment_counter("handleEvent",r,!0,i,o,performance.now()-t),n}increment_counter("handleEvent",r,!1,i,o,0)}};removeEventListener_alias[e]||(removeEventListener_alias[e]={}),removeEventListener_alias[e][o]=a;var s=original_EventTarget_addEventListener.call(i,e,a,t);return increment_counter("addEventListener",r,!0,i,o,performance.now()-n),s}increment_counter("addEventListener",r,!1,i,o,0)},Navigator.prototype.getBattery){var original_Navigator_getBattery=Navigator.prototype.getBattery;Navigator.prototype.getBattery=function(){var e=this;if(!get_options().injection_disabled){if(is_allowed("WebAPIs","getBattery")){var t=performance.now(),n=original_Navigator_getBattery.call(e);return increment_counter("WebAPIs","getBattery",!0,e,void 0,performance.now()-t),n}return increment_counter("WebAPIs","getBattery",!1,e,void 0,0),new Promise(function(e,t){})}original_Navigator_getBattery.call(e)}}var original_window_fetch=window.fetch;if(window.fetch=function(e,t){var n=this;if(get_options().injection_disabled)return original_window_fetch.call(n,e,t);if(is_allowed("WebAPIs","fetch")){var o=performance.now(),i=original_window_fetch.call(n,e,t);return increment_counter("WebAPIs","fetch",!0,n,e,0,performance.now()-o),i}return increment_counter("WebAPIs","fetch",!1,n,e,0),new Promise(function(e,t){})},navigator.getGamepads){var original_navigator_getGamepads=navigator.getGamepads;navigator.getGamepads=function(){var e=this;if(get_options().injection_disabled)return original_navigator_getGamepads.call(e);if(is_allowed("WebAPIs","getGamepads")){var t=performance.now(),n=original_navigator_getGamepads.call(e);return increment_counter("WebAPIs","getGamepads",!0,e,void 0,performance.now()-t),n}return increment_counter("WebAPIs","getGamepads",!1,e,void 0,0),[]}}if("geolocation"in navigator){var original_navigator_geolocation_getCurrentPosition=navigator.geolocation.getCurrentPosition;navigator.geolocation.getCurrentPosition=function(o,e,t){var i=this;if(!get_options().injection_disabled){return original_navigator_geolocation_getCurrentPosition.call(i,function(e){if(is_allowed("WebAPIs","geo.getCurrentPosition")){var t=performance.now(),n=o(e);return increment_counter("WebAPIs","geo.getCurrentPosition",!0,i,o,performance.now()-t),n}increment_counter("WebAPIs","geo.getCurrentPosition",!1,i,o,0)},e,t)}original_navigator_geolocation_getCurrentPosition.call(i,o,e,t)}}if("geolocation"in navigator){var original_navigator_geolocation_watchPosition=navigator.geolocation.watchPosition;navigator.geolocation.watchPosition=function(o,e,t){var i=this;if(get_options().injection_disabled)return original_navigator_geolocation_watchPosition.call(i,o,e,t);return original_navigator_geolocation_watchPosition.call(i,function(e){if(is_allowed("WebAPIs","geo.watchPosition")){var t=performance.now(),n=o(e);return increment_counter("WebAPIs","geo.watchPosition",!0,i,o,performance.now()-t),n}increment_counter("WebAPIs","geo.watchPosition",!1,i,o,0)},e,t)}}var original_window_navigator_userAgent=window.navigator.userAgent;is_allowed("WebAPIs","headers.User-Agent")?increment_counter("WebAPIs","headers.User-Agent",!0,"HTTP headers",void 0,0):increment_counter("WebAPIs","headers.User-Agent",!1,"HTTP headers",void 0,0),Object.defineProperty(window.navigator,"userAgent",{get:function(){if(get_options().injection_disabled)return original_window_navigator_userAgent;if(is_allowed("WebAPIs","NavigatorID.userAgent")){var e=performance.now(),t=original_window_navigator_userAgent;return increment_counter("WebAPIs","NavigatorID.userAgent",!0,this,void 0,performance.now()-e),t}return increment_counter("WebAPIs","NavigatorID.userAgent",!1,this,void 0,0),"Mozilla/5.0"}}),window.setInterval=function(function_or_code,delay,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12){var super_this=this;if(get_options().injection_disabled||"__INTERNAL_LUMINOUS_CODE__"==p1)return original_window_setInterval.call(super_this,function_or_code,delay,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12);if(is_allowed("WebAPIs","setInterval")){var timer=performance.now();wraped_function_or_code=function(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12){if(is_allowed("WebAPIs","setInterval.call")){var timer=performance.now();if("string"==typeof function_or_code||function_or_code instanceof String)var execution_return=eval(function_or_code);else var execution_return=function_or_code(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12);return increment_counter("WebAPIs","setInterval.call",!0,super_this,function_or_code,performance.now()-timer),execution_return}return increment_counter("WebAPIs","setInterval.call",!1,super_this,function_or_code,0),0};var execution_return=original_window_setInterval.call(super_this,wraped_function_or_code,delay,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12);return increment_counter("WebAPIs","setInterval",!0,super_this,function_or_code,performance.now()-timer),execution_return}increment_counter("WebAPIs","setInterval",!1,super_this,function_or_code,0)},window.setTimeout=function(function_or_code,delay,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12){var super_this=this;if(get_options().injection_disabled||"__INTERNAL_LUMINOUS_CODE__"==p1)return original_window_setTimeout.call(super_this,function_or_code,delay,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12);if(is_allowed("WebAPIs","setTimeout")){var timer=performance.now();wraped_function_or_code=function(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12){if(is_allowed("WebAPIs","setTimeout.call")){var timer=performance.now();if("string"==typeof function_or_code||function_or_code instanceof String)var execution_return=eval(function_or_code);else var execution_return=function_or_code(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12);return increment_counter("WebAPIs","setTimeout.call",!0,super_this,function_or_code,performance.now()-timer),execution_return}return increment_counter("WebAPIs","setTimeout.call",!1,super_this,function_or_code,0),0};var execution_return=original_window_setTimeout.call(super_this,wraped_function_or_code,delay,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12);return increment_counter("WebAPIs","setTimeout",!0,super_this,function_or_code,performance.now()-timer),execution_return}increment_counter("WebAPIs","setTimeout",!1,super_this,function_or_code,0)};var original_WebSocket_send=WebSocket.prototype.send;WebSocket.prototype.send=function(e){if(get_options().injection_disabled)return original_WebSocket_send.call(this,e);if(is_allowed("WebAPIs","WebSocket.send")){var t=performance.now(),n=original_WebSocket_send.call(this,e);return increment_counter("WebAPIs","WebSocket.send",!0,this,e,performance.now()-t),n}increment_counter("WebAPIs","WebSocket.send",!1,this,e,0)};var original_XMLHttpRequest_open=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(e,t,n,o,i){if(void 0===n&&(n=!0),get_options().injection_disabled)return original_XMLHttpRequest_open.call(this,e,t,n,o,i);if(is_allowed("WebAPIs","XMLHttpRequest.open")){var r=performance.now(),a=original_XMLHttpRequest_open.call(this,e,t,n,o,i);return increment_counter("WebAPIs","XMLHttpRequest.open",!0,e,t,performance.now()-r),a}increment_counter("WebAPIs","XMLHttpRequest.open",!1,e,t,0)};var original_XMLHttpRequest_send=XMLHttpRequest.prototype.send;XMLHttpRequest.prototype.send=function(e){if(get_options().injection_disabled)return original_XMLHttpRequest_send.call(this,e);if(is_allowed("WebAPIs","XMLHttpRequest.send")){var t=performance.now(),n=original_XMLHttpRequest_send.call(this,e);return increment_counter("WebAPIs","XMLHttpRequest.send",!0,this,e,performance.now()-t),n}increment_counter("WebAPIs","XMLHttpRequest.send",!1,this,e,0)};var original_window_requestAnimationFrame=window.requestAnimationFrame;window.requestAnimationFrame=function(e){if(get_options().injection_disabled)return original_window_requestAnimationFrame.call(this,e);if(is_allowed("WebAPIs","requestAnimationFrame")){var t=performance.now(),n=original_window_requestAnimationFrame.call(this,e);return increment_counter("WebAPIs","requestAnimationFrame",!0,this,e,0,performance.now()-t),n}return increment_counter("WebAPIs","requestAnimationFrame",!1,this,e,0),1}}}</script><input type="hidden" id="luminous-data" data-from="contentScript" class="luminous-data" data-ready="true" data-tab="203"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title>Proxy</title>
+  <script data-version="2">
+    window.Krux||((Krux=function(){Krux.q.push(arguments)}).q=[]),Krux("proxy"),function(){var t=function(t){for(var r=t.split("&"),e={},n=0,c=r.length;c>n;++n){var i=r[n].split("=");e[i[0]]=i[1]}return e},r=/^[a-z0-9_-]+$/i,e=window.location.hash,n=t(e.slice(e.indexOf("!")+1));if(!n.kxcid||!r.test(n.kxcid))throw new Error("Invalid confid passed to proxy");n.kxcl&&r.test(n.kxcl)||(n.kxcl="cdn"),n.kxp&&/^[0-9]{1,5}$/.test(n.kxp)||(n.kxp="");var c=document.createElement("script");c.type="text/javascript",c.async=!0,c.src="//"+n.kxcl+".krxd.net"+(n.kxp?":"+n.kxp:"")+"/controltag/"+n.kxcid+".js";var i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(c,i)}();
+  </script>
+</head><body>
+
+</body><span class="kxtag kxinvisible" data-id="34"><script>
+(function(){
+  var kuid = Krux('get', 'user');
+  var cbust = Math.round(new Date().getTime() / 1000);
+  var prefix = location.protocol == 'https:' ? "https:" :"http:";
+  var url = prefix == 'https:' ? '//sb.scorecardresearch.com/p' : '//b.scorecardresearch.com/p';
+  if (kuid) {
+    Krux('require:http').pixel({
+      url: url,
+      data: {
+          c1: '9',
+          c2: '8188709',
+          cs_xi: kuid,
+          rn: cbust
+      }});
+  }
+  })();
+</script></span><span class="kxtag kxinvisible" data-id="51"><script>
+(function(){
+        var kuid = Krux('get', 'user');
+        var prefix = window.location.protocol == 'https:' ? 'https:' : 'http:';
+
+        if (kuid) {
+           var url = prefix + '//ps.eyeota.net/match?bid=i0r4o4v&uid=' + kuid;
+           (new Image()).src = url;
+        }
+})();
+</script></span><span class="kxtag kxinvisible" data-id="20"><script>
+(function(){
+    var kuid = Krux('get', 'user');
+        if (kuid) {
+            var prefix = 'https:';
+            var rurl = prefix + '//cms.analytics.yahoo.com/cms?partner_id=KRUX';
+            var i = new Image();
+            i.src = rurl;
+        }
+})();
+</script></span><span class="kxtag kxinvisible" data-id="26"><script>
+(function(){
+        var kuid = Krux('get', 'user');
+        if (kuid) {
+           var url = "https://sync.navdmp.com/sync?prtid=16&kruxid=";
+           var i = new Image();
+           i.src = url + kuid;
+        }
+})();
+</script></span><span class="kxtag kxinvisible" data-id="105"><script>
+(function(){
+	var prefix = window.location.protocol == 'https:' ? 'https:' : 'http:';
+	var url = prefix + '//loadm.exelator.com/load/?p=709&g=013&j=0';
+	(new Image()).src = url;
+})();
+</script></span><span class="kxtag kxinvisible" data-id="147"><script>
+(function(){
+	var prefix = window.location.protocol == 'https:' ? 'https:' : 'http:';
+	var url = prefix + '//sync.teads.tv/sf/sync';
+	(new Image()).src = url;
+})();
+</script></span><span class="kxtag kxinvisible" data-id="153"><script>
+(function(){
+  var kuid = Krux('get', 'user');
+  if (kuid) {
+      var datonics_url = 'https://fei.pro-market.net/engine?mimetype=img&du=88&csync=' + kuid;
+      var i = new Image();
+      i.src = datonics_url;     
+  }
+})();
+</script></span></html>

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr" prefix="og: http://ogp.me/ns#" class=" js">
+<!--- Desarrollado por Giver Cupaja  giver.olaya@gmail.com --->
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="robots" content="index, follow">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    {% load static %}
+    <!--- <script src="static/google_tag.script.js" defer=""></script> --->
+
+    <title>Servicio de Alumbrado Público</title>
+    <!---<link rel="stylesheet" media="all" href="static/css_qlAuEL4f5lJ3kHTarPma0vZ6BzR4cgdt1I9VklP_6PA.css">
+<link rel="stylesheet" media="all" href="static/css_dTw1AaF9J6sOKy4CMQtcw4o_PvP-4BpIIv8jrgQho-8.css">
+<link rel="stylesheet" media="print" href="static/css_Z5jMg7P_bjcW9iUzujI7oaechMyxQTUqZhHJ_aYSq04.css"> --->
+    <link rel="stylesheet" media="all" href="{% static '/bootstrap.min.css' %}">
+    <link rel="stylesheet" media="all"
+          href="{% static '/css_files/css_GTvWI6_CQs0ddRYAdxf0ApqHJAOAMMNm_RsgV51Bldg.css' %}">
+
+
+</head>
+<body>
+<body class="layout-no-sidebars path-frontpage" data-gr-c-s-loaded="true" style="">
+
+<div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas="">
+    <div id="page-wrapper">
+        <div id="page">
+            <header id="header" class="header" role="banner" aria-label="Site header">
+                <section class="wrapper-nav" style="">
+                    <div class="nav-wrapper"></div>
+
+                    <nav class="navbar">
+
+                        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+                                data-target="#navbar" aria-controls="navbar" aria-expanded="false"
+                                aria-label="Toggle navigation" id="hamb">
+                            <div class="bt-nav-trigger">
+                                <span></span>
+                            </div>
+                        </button>
+
+                        <!-- Navbar brand -->
+
+                        <a class="navbar-brand" href="#">
+                            <div class="nav-logo">
+                                <img src="static/img/BannerHome.png"
+                                     style="width: auto;display: block;margin-left: auto;margin-right: auto;">
+
+                            </div>
+                        </a>
+                        <a class="navbar-brand" href="/">
+                            <div class="nav-logo">
+                                Inicio
+                            </div>
+                        </a>
+                        <a class="navbar-brand" href="/control-de-finanzas/">
+                            <div class="nav-logo">
+                                Control de Finanzas
+                            </div>
+                        </a>
+                        <a class="navbar-brand" href="/hojas-de-vida/">
+                            <div class="nav-logo">
+                                Banco de Hojas de Vida
+                            </div>
+                        </a>
+                        <a class="navbar-login" href="/admin/">
+                            <div class="nav-login">
+                                <figure>
+                                    <img src="static/img/icon-login.png" alt="Ingresar" title="Ingresar">
+                                </figure>
+                            </div>
+                        </a>
+
+                    </nav>
+                </section>
+            </header>
+            <div class="highlighted">
+                <aside class="container section clearfix" role="complementary">
+                    <div data-drupal-messages-fallback="" class="hidden"></div>
+
+
+                </aside>
+            </div>
+            <div id="main-wrapper" class="layout-main-wrapper clearfix">
+                <div id="block-nearby-store-page-title" class="block block-core block-page-title-block">
+
+
+                    <div class="content">
+
+                        <h1 class="title">Obras</h1>
+
+
+                    </div>
+                </div>
+                <section class="e-map">
+                    <div class="block-search-map">
+                        <div class="form-group">
+                            <input id="pac-input" type="text" class="form-control pac-target-input" placeholder="Buscar"
+                                   autocomplete="off">
+                        </div>
+                    </div>
+
+                    <article class="c-banners d-none" data-element="banner-promo-container">
+                        <div class="scrolling-wrapper"><a data-element="c-banner-promo-76"
+                                                          href="https://www.tiendacerca.co/cupones/9/promo"
+                                                          class="c-item d-none">
+                            <figure><img src="static/300X70.png"></figure>
+                        </a></div>
+                    </article>
+
+
+                    <div id="block-map" class="block-map">
+
+                    </div>
+
+
+                    <!--  New Pincard-->
+                    <div class="e-store d-none" id="info-store" style="width: 100%;overflow-y: auto;">
+
+                        <div class="b-content">
+                            <span id="block-close" class="block-close"></span>
+                            <div class="row" id="info-store-content">
+
+                                <div class="col-12" id="img_work">
+
+                                </div>
+
+                                <div class="col-12">
+                                    <header class="block-title" id="headerWindow" style="color: #2b5ac4">
+                                    </header>
+
+                                    <div class="block-content">
+                                        <div class="w-content">
+                                            <ul class="g-info" id="g-info" style="color: #2b5ac4">
+
+                                            </ul>
+                                        </div>
+
+                                        <button type="button" class="btn btn-primary" id="pqr">Te Escuchamos</button>
+                                        <div id="visible"></div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="buy-online-wrapper" class="buy-online b-btn d-none">
+                        <a id="buy-online" class="btn btn-primary icon-g-05">
+                            <span>Compra en línea</span>
+                        </a>
+                    </div>
+                </section>
+
+
+                <!-- Modal -->
+                <div class="modal fade general-modal" id="ubicationModal" tabindex="-1" role="dialog"
+                     aria-labelledby="ubicationModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <header class="block-title">
+                                    <h1 class="title">Por favor<span>Activa tu GPS, nosotros abrimos las puertas de las obras que estamos realizando en nuestra ciudad para que juntos podamos hacer seguimiento y control de las mismas.</span>
+                                    </h1>
+                                </header>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" onclick="document.location.reload()">
+                                    Compartir mi ubicación
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="filter-wrapper-form" class="d-none scrollFilter">
+                    <a id="filter-deactivate" class="back-map" href="#">Atrás</a>
+
+                    <div class="filter-body" id="filter-body">
+
+                        <div class="row">
+                            <div class="col-6">
+                                <span>Estás filtrando por:</span>
+                            </div>
+
+                            <div class="col-6 text-right">
+                                <a id="delete-filter-tags" href="#">Borrar filtro</a>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div id="accordion" style="margin-top: 20px;margin-bottom: 20px;">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h5 class="mb-0">
+
+                                            <button class="btn btn-link" id="cb-SECRETARIA"
+                                                    style="background-color: #00B7FF;color:white;">
+                                                <span style="float: left;">Seleccione</span>
+                                                <span style="float: right;"> <img
+                                                        src="https://www.tiendacerca.co/themes/custom/nearby_store/src/img/icon-filters.svg"
+                                                        width="40%"> </span>
+                                            </button>
+                                        </h5>
+                                    </div>
+
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                                         data-parent="#accordion">
+                                        <div class="card-body">
+                                            <div class="form-check filter-option">
+                                                <input type="checkbox" id="cb-SECRETARIA" value="SECRETARIA"
+                                                       style="display: none;"><label for="cb-SECRETARIA">
+                                                SECRETARÍAS</label>
+                                            </div>
+                                            <div class="form-check filter-option">
+                                                <input type="checkbox" id="cb-ANIO" value="ANIO" style="display: none;"><label
+                                                    for="cb-ANIO"> AÑOS</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span><strong>Tipos de Obras:</strong></span>
+
+                        <div id="filter-container" class="filter-list">
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!-- Creates the bootstrap modal where the image will appear -->
+                <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel">Image preview</h4>
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                                        class="sr-only">Close</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="" id="imagepreview" style="width: 100%;">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal"
+                                        style="background-color: #00B7FF;color:white;">Cerrar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade takeover" id="informativeModal" tabindex="-1" role="dialog"
+                     aria-labelledby="informativeModalLabel" style="padding-right: 12px;">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="owl-block owl-carousel owl-theme owl-loaded owl-drag">
+                                    <div class="owl-stage-outer">
+                                        <div class="owl-stage"
+                                             style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2145px;">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-dots">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <footer class="site-footer">
+            <div class="container">
+            </div>
+        </footer>
+    </div>
+</div>
+
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="static/bootstrap.min.js"></script>
+<script src="static/js_files/owl.carousel.js"></script>
+<script type="text/javascript">
+    //Variables Globales
+    var urll = window.location.href;
+    var arr = urll.split("/");
+    var url = arr[0] + "//" + arr[2];
+    var miMapa;
+    var Markers = new Map();
+    var beachMarker;
+    var obrasSecretary = [];
+    var anio = false;
+    var secretary = false;
+    var idWork = 0;
+
+    //Abrir Hamburguesa
+    $("#hamb").click(function () {
+        $("#filter-wrapper-form").removeClass("d-none");
+    });
+
+    //Cerrar Filtros
+    $("#filter-deactivate").click(function () {
+        $("#filter-wrapper-form").addClass("d-none");
+    });
+
+    //Calcular tamaño del mapa
+    var tam = ($(window).height() - $(".navbar").height()) * 0.973813420622;
+    $("#block-map").height(tam);
+
+    $(window).resize(function () {
+        tam = ($(window).height() - $(".navbar").height()) * 0.973813420622;
+        $("#block-map").height(tam);
+    });
+
+    //Cerrar infoWindows
+    $("#block-close").click(function () {
+        idWork = 0;
+        $("#info-store").addClass("d-none");
+    });
+
+    //Inicializar Mapa
+    function init() {
+        //Opciones del mapa
+        var OpcionesMapa = {
+            center: new google.maps.LatLng(4.15, -73.633),
+            mapTypeId: google.maps.MapTypeId.hybrid, //ROADMAP  SATELLITE HYBRID TERRAIN
+            zoom: 14
+        };
+
+        //constructor
+        miMapa = new google.maps.Map(document.getElementById('block-map'), OpcionesMapa);
+
+    }
+
+    function toggleCheckbox(element) {
+        var id = element.id.split("-");
+        if ($('#cb-SECRETARIA-' + id[id.length - 1]).is(':checked')) {
+            obrasSecretary.push(id[id.length - 1]);
+        } else {
+            obrasSecretary = removeItemFromArr(obrasSecretary, id[id.length - 1]);
+        }
+        filterMarker(secretary, anio);
+    }
+
+    const capitalize = (str, lower = false) =>
+        (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, match => match.toUpperCase());
+
+    //Cargar datos a ventana de información
+    function loadData(values) {
+        /* Obtener id de la obra */
+        idWork = values.id;
+        $.ajax({
+            url: url + '/api/v1/works/all/' + values.id + '/',
+            method: "GET",
+            success: function (result) {
+                //Cargar Header
+                var header = '<p class="store-type btn btn-outline-primary" style="pointer-events: none; margin-bottom:2%;">' + result.secretary.name + '</p>' +
+                    '<h3 class="title">' + values.title + '...</h3>';
+                $('#headerWindow').html(header);
+                //Cargar Contenido
+                var content = '<li class="store-phone phone-text"><span>Año:</span> ' + result.year + '</li>' +
+                    '<li class="store-direction" style="text-transform: capitalize;"><span class="label">Objeto:</span> ' + capitalize(result.contract_object.toLowerCase()) + '</li>' +
+                    '<li class="store-phone phone-text"><span>Avance Obra:</span>' +
+                    '<div class="progress">' +
+                    '<div class="progress-bar bg-success" role="progressbar" style="width: ' + result.progress_work + '%;" aria-valuenow="' + result.progress_work + '" aria-valuemin="0" aria-valuemax="100">' + result.progress_work + '%</div>' +
+                    '</div>' +
+                    '</li>' +
+                    '<li class="store-phone phone-text"><span>Valor Contrato:</span> $ ' + result.total_value + '</li>' +
+                    '<li class="store-phone phone-text"><span>Estado Actual:</span> ' + result.actual_work_state.name + '</li>' +
+                    '<li class="store-phone phone-text" style="display:none;"><span>PQR:</span> <a href="mailto:' + result.secretary.email + '?Subject=PQR">' + result.secretary.email + '</a></li>';
+                $('#g-info').html(content);
+
+                //Cargar Imagenes
+                var img = '<img src="https://www.pinclipart.com/picdir/big/444-4445109_diseo-y-obra-civil-laborers-icon-clipart.png" id="zoom">';
+                var gallery_images = '<div class="owl-item" style="width: 715px;">' +
+                    '<div class="item">' +
+                    '<picture>' +
+                    '<source media="(max-width: 767px)" srcset="https://www.pinclipart.com/picdir/big/444-4445109_diseo-y-obra-civil-laborers-icon-clipart.png">' +
+                    '<a href="#" target="_blank"> <img src="https://www.pinclipart.com/picdir/big/444-4445109_diseo-y-obra-civil-laborers-icon-clipart.png" alt="Banner01" title="Banner01"></a>' +
+                    '</picture>' +
+                    '</div>' +
+                    '</div>';
+                /* Verificar si hay imagenes en la obra */
+                if (typeof result.gallery_images[0] !== 'undefined') {
+                    img = '<img src="' + result.gallery_images[0].image + '" id="zoom">';
+                    gallery_images = '';
+                    for (var i = 0; i < result.gallery_images.length; i++) {
+                        gallery_images += '<div class="owl-item" style="width: 715px;">' +
+                            '<div class="item">' +
+                            '<picture>' +
+                            '<source media="(max-width: 767px)" srcset="' + result.gallery_images[i].image + '">' +
+                            '<a href="#" target="_blank"> <img src="' + result.gallery_images[i].image + '" alt="Banner01" title="Banner01"></a>' +
+                            '</picture>' +
+                            '</div>' +
+                            '</div>';
+                    }
+                }
+                /* cargar HTML */
+                $('#img_work').html(img);
+                $('.owl-stage').html(gallery_images);
+                /* inicializar Carousel */
+                var owl = $('.owl-carousel');
+                owl.trigger("destroy.owl.carousel");
+                owl.owlCarousel({
+                    items: 1,
+                    loop: true,
+                    margin: 10,
+                    autoplay: true,
+                    autoplayTimeout: 4000,
+                    autoplayHoverPause: true
+                });
+
+                $("#zoom").on("click", function () {
+                    $('#informativeModal').modal('show');
+                });
+
+
+                $("#info-store").removeClass("d-none");
+
+            },
+            error: function () {
+                console.log("No se ha podido obtener la información");
+            }
+        });
+    }
+
+    window.onload = function () {
+
+        //Validar Localización
+        if (navigator.geolocation) {
+
+            var success = function (position) {
+
+                var latitud = position.coords.latitude,
+                    longitud = position.coords.longitude;
+                $.ajax({
+                    async: false,
+                    url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + latitud + "," + longitud + "&key=AIzaSyAQtGE9LA580ASJ7WBtWJwP1F3plL2dU4E",
+                    method: "GET",
+                    success: function (result) {
+                        for (var i = 0; i < result.results[1].address_components.length; i++) {
+                            if (result.results[1].address_components[i].types[0] == "administrative_area_level_2") {
+                                if (result.results[1].address_components[i].long_name == "Villavicencio") {
+                                    miMapa.setCenter(new google.maps.LatLng(latitud, longitud));
+                                }
+                            }
+                        }
+                    },
+                    error: function () {
+                        console.log("No se ha podido obtener la información");
+                    }
+                });
+            }
+            navigator.geolocation.getCurrentPosition(success, function (msg) {
+
+                $("#ubicationModal").modal("show");
+                console.error(msg);
+
+            });
+        }
+
+        //Mostrar marcadores
+        var secretaries = [];
+        $.ajax({
+            url: url + '/api/v1/works/all/',
+            method: "GET",
+            success: function (result) {
+                var cont = 0;
+                for (var i = 0; i < result.length; i++) {
+                    if (typeof secretaries[result[i].secretary.id] === 'undefined') {
+                        secretaries[result[i].secretary.id] = 0;
+                    }
+                    secretaries[result[i].secretary.id]++; //Saber cantidad por secretarias
+                    for (var j = 0; j < result[i].coordinates.length; j++) {
+                        beachMarker = new google.maps.Marker({
+                            position: new google.maps.LatLng(result[i].coordinates[j].latitude, result[i].coordinates[j].longitude),
+                            map: miMapa,
+                            title: result[i].coordinates[j].name,
+                            icon: result[i].secretary.icon,
+                            secretary: result[i].secretary.id,
+                            id: result[i].id,
+                            coordinates_id: result[i].coordinates[j].id
+                        });
+
+                        google.maps.event.addListener(beachMarker, "click", function () {
+                            loadData(this);
+                        });
+
+                        Markers.set(cont, beachMarker);
+                        cont++;
+                    }
+                }
+                //Simular Click cb-SECRETARIA
+                $('#cb-SECRETARIA').click();
+            },
+            error: function () {
+                console.log("No se ha podido obtener la información");
+            }
+        });
+
+        //obtener Secretarias
+        $('#cb-SECRETARIA').click(function () {
+            //if($('#cb-SECRETARIA').is(':checked')){
+            if (!secretary) {
+                obrasSecretary = [];
+                secretary = true;
+                $.ajax({
+                    url: url + '/api/v1/secretaries/all/',
+                    method: "GET",
+                    success: function (result) {
+                        for (var i = 0; i < result.length; i++) {
+                            if (typeof secretaries[result[i].id] !== 'undefined') {
+                                var html = $('#filter-container').html();
+                                html += '<div class="form-check filter-option cb-SECRETARIA">' +
+                                    ' <img src="' + result[i].icon + '" > ' +
+                                    '<input type="checkbox" id="cb-SECRETARIA-' + result[i].id + '" value="' + result[i].id + '" style="display: none;" class="cb-SECRETARIA" onchange="toggleCheckbox(this)">' +
+                                    '<label for="cb-SECRETARIA-' + result[i].id + '"><span>' + secretaries[result[i].id] + '</span> ' + result[i].name + '</label>' +
+                                    '</div>';
+                                $('#filter-container').html(html);
+                            }
+                        }
+                    },
+                    error: function (e) {
+                        console.log("No se ha podido obtener la información", e);
+                    }
+                });
+            } else {
+                secretary = false;
+                $(".cb-SECRETARIA").remove();
+                obrasSecretary = [];
+                filterMarker(secretary, anio);
+            }
+        });
+
+        //obtener Años
+        $('#cb-ANIO').click(function () {
+            if ($('#cb-ANIO').is(':checked')) {
+                var html = $('#filter-container').html();
+
+                //Generar Años
+                var anio_actual = new Date().getFullYear();
+                var aux = anio_actual - 3;
+                var html_anios = '<option value="">Seleccionar</option>';
+                for (var i = aux; i < aux + 7; i++) {
+                    html_anios += '<option>' + i + '</option>';
+                }
+
+                //Html Select
+                html += '<div class="form-check filter-option cb-ANIOS">' +
+                    '<label for="cb-ANIOS">Seleccionar Año:</label>' +
+                    '<select class="form-control" id="cb-ANIOS">' +
+                    html_anios +
+                    '</select>' +
+                    '</div>';
+                $('#filter-container').html(html);
+                $(document).on('change', '#cb-ANIOS', function (event) {
+                    anio = $("#cb-ANIOS option:selected").val();
+                    filterMarker(secretary, anio);
+                });
+                if (secretary === true) {
+                    obrasSecretary = [];
+                }
+            } else {
+                anio = false;
+                $(".cb-ANIOS").remove();
+                filterMarker(secretary, anio);
+            }
+        });
+
+        //boton pqr
+        $('#pqr').click(function () {
+            window.location = 'pqr/works/' + idWork + '/';
+            //post('pqr/works/'+idWork+'/', {data: html, csrfmiddlewaretoken: '{{ csrf_token }}'});
+        });
+
+    }
+
+    //Eliminar marcadores
+    function logMapElements(value, key, map) {
+        value.setMap(null);
+    }
+
+    //Elimnar elemento de un array
+    var removeItemFromArr = (arr, item) => {
+        return arr.filter(e => e !== item);
+    };
+
+    //Filtra
+    function filterMarker(secretary = false, year = false) {
+        Markers.forEach(logMapElements);
+
+        //Filtros
+        var data = "";
+        if (year !== false && secretary !== false) {
+            data = "secretaries=" + JSON.stringify(obrasSecretary) + "&year=" + year;
+        } else if (year !== false) {
+            data = "year=" + year;
+        } else if (secretary !== false) {
+            data = "secretaries=" + JSON.stringify(obrasSecretary);
+        }
+
+        //Cargar Marcadores
+        $.ajax({
+            url: url + '/api/v1/works/all/?' + data,
+            method: "GET",
+            success: function (result) {
+                var cont = 0;
+                for (var i = 0; i < result.length; i++) {
+                    for (var j = 0; j < result[i].coordinates.length; j++) {
+                        beachMarker = new google.maps.Marker({
+                            position: new google.maps.LatLng(result[i].coordinates[j].latitude, result[i].coordinates[j].longitude),
+                            map: miMapa,
+                            title: result[i].coordinates[j].name,
+                            icon: result[i].secretary.icon,
+                            secretary: result[i].secretary.id,
+                            id: result[i].id,
+                            coordinates_id: result[i].coordinates[j].id
+                        });
+
+                        google.maps.event.addListener(beachMarker, "click", function () {
+                            loadData(this);
+                        });
+
+                        Markers.set(cont, beachMarker);
+                        cont++;
+                    }
+                }
+            },
+            error: function (e) {
+                console.log("No se ha podido obtener la información", e);
+            }
+        });
+    }
+
+    //Borrar Filtros
+    $('#delete-filter-tags').click(function () {
+        deleteFilter();
+    });
+
+    function deleteFilter(full = true) {
+        anio = false;
+        $(".cb-ANIOS").remove();
+        $("#cb-ANIO").prop('checked', false);
+        secretary = false;
+        $(".cb-SECRETARIA").remove();
+        $("#cb-SECRETARIA").prop('checked', false);
+        obrasSecretary = [];
+        if (full)
+            filterMarker(secretary, anio);
+    }
+
+    //Buscador
+    $('#pac-input').keyup(function () {
+        deleteFilter(false);
+        Markers.forEach(logMapElements);
+
+        var q = $(this).val();
+        //Cargar Marcadores
+        $.ajax({
+            url: url + '/api/v1/works/all/?search=' + q,
+            method: "GET",
+            success: function (result) {
+
+                var cont = 0;
+                for (var i = 0; i < result.length; i++) {
+                    for (var j = 0; j < result[i].coordinates.length; j++) {
+                        beachMarker = new google.maps.Marker({
+                            position: new google.maps.LatLng(result[i].coordinates[j].latitude, result[i].coordinates[j].longitude),
+                            map: miMapa,
+                            title: result[i].coordinates[j].name,
+                            icon: result[i].secretary.icon,
+                            secretary: result[i].secretary.id,
+                            id: result[i].id,
+                            coordinates_id: result[i].coordinates[j].id
+                        });
+
+                        google.maps.event.addListener(beachMarker, "click", function () {
+                            loadData(this);
+                        });
+
+                        Markers.set(cont, beachMarker);
+                        cont++;
+                    }
+                }
+            },
+            error: function (e) {
+                console.log("No se ha podido obtener la información", e);
+            }
+        });
+    });
+
+    /**
+     * sends a request to the specified url from a form. this will change the window location.
+     * @param {string} path the path to send the post request to
+     * @param {object} params the paramiters to add to the url
+     * @param {string} [method=post] the method to use on the form
+     */
+
+    function post(path, params, method = 'post') {
+
+        // The rest of this code assumes you are not using a library.
+        // It can be made less wordy if you use one.
+        const form = document.createElement('form');
+        form.method = method;
+        form.action = path;
+
+        for (const key in params) {
+            if (params.hasOwnProperty(key)) {
+                const hiddenField = document.createElement('input');
+                hiddenField.type = 'hidden';
+                hiddenField.name = key;
+                hiddenField.value = params[key];
+
+                form.appendChild(hiddenField);
+            }
+        }
+
+        document.body.appendChild(form);
+        form.submit();
+    }
+
+
+</script>
+<script async="" defer=""
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQtGE9LA580ASJ7WBtWJwP1F3plL2dU4E&callback=init"></script>
+
+
+</body>
+<!--- Desarrollado por Giver Cupaja  giver.olaya@gmail.com --->
+</html>
