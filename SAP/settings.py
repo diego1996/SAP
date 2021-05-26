@@ -162,7 +162,7 @@ CORS_ALLOW_METHODS = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
-    "tk.gobiernocontigo.com",
+    "https://tk.gobiernocontigo.com",
     "http://127.0.0.1",
 ]
 
