@@ -4,7 +4,7 @@ django-appconf==1.0.4
 django-filter==2.3.0
 Django-Select2==5.8.10
 django-cors-headers==3.4.0
-django-import-export
+django-import_export
 https://github.com/darklow/django-suit/tarball/v2
 djangorestframework==3.11.0
 Markdown==3.2.2

@@ -26,7 +26,7 @@ SECRET_KEY = 'u)!!40^rcv4mvnem24&^yb0u^ufm#osb2t$6k3vw!os(%jc+pz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'gobiernocontigo.com', 'www.gobiernocontigo.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -161,10 +161,10 @@ CORS_ALLOW_METHODS = [
     'PUT',
 ]
 
-CORS_ORIGIN_WHITELIST = [
+'''CORS_ORIGIN_WHITELIST = [
     "https://www.gobiernocontigo.com",
     "http://127.0.0.1",
-]
+]'''
 
 CORS_ORIGIN_ALLOW_ALL = True
 
