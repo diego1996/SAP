@@ -3,6 +3,8 @@ version: '3'
 services:
   sap:
     build: .
+    ports:
+      - 82
     container_name: sap
     volumes:
       - .:/code
