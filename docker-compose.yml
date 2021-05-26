@@ -3,18 +3,7 @@ version: '3'
 services:
   web:
     build: .
+    ports:
+      - 82:82
     volumes:
       - .:/code
-
-  https-portal:
-    image: steveltn/https-portal:1
-    ports:
-      - '80:80'
-      - '443:443'
-    links:
-      - web
-    restart: always
-    environment:
-      DOMAINS: 'gobiernocontigo.com -> http://web, www.gobiernocontigo.com -> http://web'
-      STAGE: 'production' # Don't use production until staging works
-      # FORCE_RENEW: 'true'
