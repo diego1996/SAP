@@ -26,7 +26,7 @@ SECRET_KEY = 'u)!!40^rcv4mvnem24&^yb0u^ufm#osb2t$6k3vw!os(%jc+pz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'tk.gobiernocontigo.com', 'sap.alboradaeice.com']
 
 # Application definition
 
@@ -162,7 +162,7 @@ CORS_ALLOW_METHODS = [
 ]
 
 '''CORS_ORIGIN_WHITELIST = [
-    "https://www.gobiernocontigo.com",
+    "https://tk.gobiernocontigo.com",
     "http://127.0.0.1",
 ]'''
 
