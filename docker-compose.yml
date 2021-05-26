@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  SAP:
+  sap:
     build: .
-    container_name: SAP
+    container_name: sap
     volumes:
       - .:/code
