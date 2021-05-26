@@ -1,9 +1,8 @@
 version: '3'
 
 services:
-  web:
+  SAP:
     build: .
-    ports:
-      - 82:82
+    container_name: SAP
     volumes:
       - .:/code
