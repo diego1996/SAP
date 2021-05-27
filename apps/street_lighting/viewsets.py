@@ -15,10 +15,8 @@ Elements = namedtuple('Elements', ('luminarias', 'postes', 'redes', 'camaras', '
 class ElementsViewSet(mixins.ListModelMixin,
                     mixins.RetrieveModelMixin,
                     viewsets.GenericViewSet):
-    serializer_class = ElementsSerializer
 
     def get_queryset(self):
-        result_list = list(chain(Luminaria.objects.all(), Poste.objects.all(), Red.objects.all(), Camara.objects.all(), Transformador.objects.all()))
         elements = Elements(
             luminarias=Luminaria.objects.all(),
             postes=Poste.objects.all(),
@@ -26,4 +24,5 @@ class ElementsViewSet(mixins.ListModelMixin,
             camaras=Camara.objects.all(),
             transformadores=Transformador.objects.all(),
         )
-        return elements
+        serializer = ElementsSerializer(elements)
+        return Response(serializer.data)
