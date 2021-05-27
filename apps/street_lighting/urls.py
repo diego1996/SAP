@@ -8,5 +8,5 @@ router = routers.DefaultRouter()
 router.register('elements', ElementsViewSet, basename='Elements')
 
 urlpatterns = [
-    path('api/v1/', include(router.urls)),
+    path('api/v2/', include(router.urls)),
 ]
