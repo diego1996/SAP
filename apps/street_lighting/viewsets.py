@@ -15,7 +15,4 @@ class ElementsViewSet(mixins.ListModelMixin,
     serializer_class = ElementsSerializer
 
     def get_queryset(self):
-        try:
-            return Luminaria.objects.all() | Poste.objects.all() | Red.objects.all() | Camara.objects.all() | Transformador.objects.all()
-        except:
-            raise Exception("Error in get request params")
+        return Luminaria.objects.all() | Poste.objects.all() | Red.objects.all() | Camara.objects.all() | Transformador.objects.all()
