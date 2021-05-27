@@ -17,4 +17,4 @@ class ElementsViewSet(mixins.ListModelMixin,
 
     def get_queryset(self):
         result_list = list(chain(Luminaria.objects.all(), Poste.objects.all(), Red.objects.all(), Camara.objects.all(), Transformador.objects.all()))
-        return result_list
+        return result_list.model
