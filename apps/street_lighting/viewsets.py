@@ -15,5 +15,5 @@ class ElementsViewSet(mixins.ListModelMixin,
                     viewsets.GenericViewSet):
 
     def get_queryset(self):
-        result_list = list(chain(Luminaria.objects.all(), Poste.objects.all(), Red.objects.all(), Camara.objects.all(), Transformador.objects.all()))
+        result_list = list(chain(Poste.objects.all(), Red.objects.all(), Camara.objects.all(), Transformador.objects.all()))
         return JsonResponse(result_list, safe=False)
