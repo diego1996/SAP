@@ -8,14 +8,30 @@ from apps.street_lighting.models import *
 #Consultas
 from django.db import connection
 
+class LuminariaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Luminaria
+
+class PosteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Poste
+
+class RedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Red
+
+class CamaraSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Camara
+
+class TransformadorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Transformador
+
 class ElementsSerializer(serializers.Serializer):
     """Your data serializer, define your fields here."""
-    num_unico_rotulo = serializers.CharField()
-    latitude = serializers.CharField()
-    longitude = serializers.CharField()
-    latitude_desde = serializers.CharField()
-    longitude_desde = serializers.CharField()
-    latitude_hasta = serializers.CharField()
-    longitude_hasta = serializers.CharField()
-    direccion = serializers.CharField()
-    ubicacion = serializers.CharField()
+    luminarias = LuminariaSerializer(many=True)
+    postes = PosteSerializer(many=True)
+    redes = RedSerializer(many=True)
+    camaras = CamaraSerializer(many=True)
+    transformadores = TransformadorSerializer(many=True)
