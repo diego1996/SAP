@@ -12,9 +12,8 @@ from apps.street_lighting.serializers import *
 class ElementsViewSet(mixins.ListModelMixin,
                     mixins.RetrieveModelMixin,
                     viewsets.GenericViewSet):
-    queryset = Luminaria.objects.all()
     serializer_class = ElementsSerializer
 
     def get_queryset(self):
         result_list = list(chain(Luminaria.objects.all(), Poste.objects.all(), Red.objects.all(), Camara.objects.all(), Transformador.objects.all()))
-        return result_list.model
+        return result_list
