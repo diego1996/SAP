@@ -12,11 +12,9 @@ from apps.street_lighting.serializers import *
 
 Elements = namedtuple('Elements', ('luminarias', 'postes', 'redes', 'camaras', 'transformadores'))
 
-class ElementsViewSet(mixins.ListModelMixin,
-                    mixins.RetrieveModelMixin,
-                    viewsets.GenericViewSet):
+class ElementsViewSet(viewsets.ViewSet):
 
-    def get_queryset(self):
+    def list(self, request):
         elements = Elements(
             luminarias=Luminaria.objects.all(),
             postes=Poste.objects.all(),
