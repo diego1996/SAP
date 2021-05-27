@@ -11,22 +11,27 @@ from django.db import connection
 class LuminariaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Luminaria
+        fields = '__all__'
 
 class PosteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Poste
+        fields = '__all__'
 
 class RedSerializer(serializers.ModelSerializer):
     class Meta:
         model = Red
+        fields = '__all__'
 
 class CamaraSerializer(serializers.ModelSerializer):
     class Meta:
         model = Camara
+        fields = '__all__'
 
 class TransformadorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transformador
+        fields = '__all__'
 
 class ElementsSerializer(serializers.Serializer):
     """Your data serializer, define your fields here."""
