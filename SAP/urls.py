@@ -34,5 +34,6 @@ urlpatterns = [
     path('', views.home, name='home'),
 
     path('', include('apps.works.urls')),
+    path('', include('apps.street_lighting.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 admin.site.site_header = format_html("{name}", name=const.APP_NAME_VERSION)
