@@ -32,7 +32,6 @@ class LuminariaViewSet(mixins.ListModelMixin,
                     viewsets.GenericViewSet):
     queryset = Luminaria.objects.all()
     serializer_class = LuminariaSerializer
-    pagination_class = Pagination
 
     def get_queryset(self):
         try:
