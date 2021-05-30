@@ -27,8 +27,25 @@ class Pagination(PageNumberPagination):
             'results': data
         })
 
-class ElementsViewSet(viewsets.ViewSet):
+class LuminariaViewSet(mixins.ListModelMixin,
+                    mixins.RetrieveModelMixin,
+                    viewsets.GenericViewSet):
+    queryset = Luminaria.objects.all()
+    serializer_class = LuminariaSerializer
     pagination_class = Pagination
+
+    def get_queryset(self):
+        try:
+            latitude = self.request.query_params.get('latitude', None)
+            longitude = self.request.query_params.get('longitude', None)
+            distance = 20
+            if latitude and longitude:
+                return Luminaria.objects.raw('SELECT * FROM (SELECT *, (((acos(sin((%s*pi()/180)) * sin((latitude*pi()/180))+cos((%s*pi()/180)) * cos((latitude*pi()/180)) * cos(((%s - longitude)*pi()/180))))*180/pi())*60*1.1515*1609.344) as distance FROM street_lighting_luminaria)myTable WHERE distance <= %s', [latitude, latitude, longitude, distance])
+            return Luminaria.objects.all()
+        except:
+            raise Exception("Error in get request params")
+
+'''class ElementsViewSet(viewsets.ViewSet):
 
     def list(self, request):
         elements = Elements(
@@ -39,4 +56,4 @@ class ElementsViewSet(viewsets.ViewSet):
             transformadores=Transformador.objects.all(),
         )
         serializer = ElementsSerializer(elements)
-        return Response(serializer.data)
+        return Response(serializer.data)'''
