@@ -40,7 +40,7 @@ class LuminariaViewSet(mixins.ListModelMixin,
             longitude = self.request.query_params.get('longitude', None)
             distance = 20
             if latitude and longitude:
-                return Luminaria.objects.raw('SELECT * FROM (SELECT *, (((acos(sin(('+str(latitude)+'*pi()/180)) * sin((latitude*pi()/180))+cos(('+str(latitude)+'*pi()/180)) * cos((latitude*pi()/180)) * cos((('+str(longitude)+' - longitude)*pi()/180))))*180/pi())*60*1.1515*1609.344) as distance FROM works_complaint)myTable WHERE distance <= '+str(distance))
+                return Luminaria.objects.raw('SELECT * FROM (SELECT *, (((acos(sin(('+str(latitude)+'*pi()/180)) * sin((latitude*pi()/180))+cos(('+str(latitude)+'*pi()/180)) * cos((latitude*pi()/180)) * cos((('+str(longitude)+' - longitude)*pi()/180))))*180/pi())*60*1.1515*1609.344) as distance FROM street_lighting_luminaria)myTable WHERE distance <= '+str(distance))
             return Luminaria.objects.all()
         except:
             raise Exception("Error in get request params")
