@@ -11,6 +11,9 @@ from collections import namedtuple
 from apps.street_lighting.models import *
 from apps.street_lighting.serializers import *
 
+#Consultas
+from django.db import connection
+
 Elements = namedtuple('Elements', ('luminarias', 'postes', 'redes', 'camaras', 'transformadores'))
 
 class Pagination(PageNumberPagination):
@@ -39,7 +42,15 @@ class LuminariaViewSet(mixins.ListModelMixin,
             longitude = self.request.query_params.get('longitude', None)
             distance = 20
             if latitude and longitude:
-                return Luminaria.objects.raw('SELECT * FROM (SELECT *, (((acos(sin(('+str(latitude)+'*pi()/180)) * sin((latitude*pi()/180))+cos(('+str(latitude)+'*pi()/180)) * cos((latitude*pi()/180)) * cos((('+str(longitude)+' - longitude)*pi()/180))))*180/pi())*60*1.1515*1609.344) as distance FROM street_lighting_luminaria)myTable WHERE distance <= '+str(distance))
+                cursor = connection.cursor()
+                qry = 'SELECT * FROM (SELECT *, (((acos(sin(('+str(latitude)+'*pi()/180)) * sin((latitude*pi()/180))+cos(('+str(latitude)+'*pi()/180)) * cos((latitude*pi()/180)) * cos((('+str(longitude)+' - longitude)*pi()/180))))*180/pi())*60*1.1515*1609.344) as distance FROM street_lighting_luminaria)myTable WHERE distance <= '+str(distance)
+                cursor.execute(qry)
+                r = [dict((cursor.description[i][0], value) \
+                   for i, value in enumerate(row)) for row in cursor.fetchall()]
+                serializer = LuminariaSerializer(r)
+                if serializer.is_valid():
+                    return Response(serializer.data)
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
             return Luminaria.objects.all()
         except:
             raise Exception("Error in get request params")
