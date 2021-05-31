@@ -7,9 +7,9 @@ from apps.street_lighting.views import *
 
 router = routers.DefaultRouter()
 #router.register('elements', ElementsViewSet, basename='Elements')
-#router.register('luminarias', LuminariaViewSet)
+router.register('luminarias', LuminariaViewSet)
 
 urlpatterns = [
-    #path('api/v2/', include(router.urls)),
+    path('api/v2/', include(router.urls)),
     path('api/v3/luminarias', LuminariaView),
 ]

@@ -42,7 +42,7 @@ def LuminariaView(request):
         if latitude and longitude:
             cursor = connection.cursor()
             #qry = 'SELECT * FROM street_lighting_luminaria LIMIT 1'
-            query = "SELECT id, ((ACOS(SIN("+latitude+" * PI() / 180) * SIN(latitude * PI() / 180) + COS("+latitude+" * PI() / 180) * COS(latitude * PI() / 180) * COS(("+longitude+" - longitude) * PI() / 180)) * 180 / PI()) * 60 * 1.1515 * 1609.344) AS distance FROM street_lighting_luminaria GROUP BY id HAVING distance<='"+str(distance)+"' ORDER BY distance ASC"
+            query = "SELECT id, ((ACOS(SIN("+latitude+" * PI() / 180) * SIN(latitude * PI() / 180) + COS("+latitude+" * PI() / 180) * COS(latitude * PI() / 180) * COS(("+longitude+" - longitude) * PI() / 180)) * 180 / PI()) * 60 * 1.1515 * 1609.344) AS distance FROM street_lighting_luminaria GROUP BY id HAVING distance<='"+str(distance)+"' ORDER BY distance ASC LIMIT 0,20"
             cursor.execute(query)
             r = [dict((cursor.description[i][0], value) \
                     for i, value in enumerate(row)) for row in cursor.fetchall()]
@@ -60,39 +60,28 @@ def LuminariaView(request):
 
 
 
-'''class LuminariaViewSet(mixins.ListModelMixin,
+class LuminariaViewSet(mixins.ListModelMixin,
                     mixins.RetrieveModelMixin,
                     viewsets.GenericViewSet):
     queryset = Luminaria.objects.all()
     serializer_class = LuminariaSerializer
 
     def get_queryset(self):
-        latitude = self.request.query_params.get('latitude', None)
-        longitude = self.request.query_params.get('longitude', None)
-        distance = 20
-        cursor = connection.cursor()
-        qry = 'SELECT * FROM (SELECT *, (((acos(sin(('+str(latitude)+'*pi()/180)) * sin((latitude*pi()/180))+cos(('+str(latitude)+'*pi()/180)) * cos((latitude*pi()/180)) * cos((('+str(longitude)+' - longitude)*pi()/180))))*180/pi())*60*1.1515*1609.344) as distance FROM street_lighting_luminaria)myTable WHERE distance <= '+str(distance)+' LIMIT 1'
-        cursor.execute(qry)
         try:
             latitude = self.request.query_params.get('latitude', None)
             longitude = self.request.query_params.get('longitude', None)
-            distance = 20
+            distance = 50
             if latitude and longitude:
                 cursor = connection.cursor()
-                print(latitude)
-                qry = 'SELECT * FROM (SELECT *, (((acos(sin(('+str(latitude)+'*pi()/180)) * sin((latitude*pi()/180))+cos(('+str(latitude)+'*pi()/180)) * cos((latitude*pi()/180)) * cos((('+str(longitude)+' - longitude)*pi()/180))))*180/pi())*60*1.1515*1609.344) as distance FROM street_lighting_luminaria)myTable WHERE distance <= '+str(distance)+' LIMIT 1'
-                cursor.execute(qry)
-                r = [dict((cursor.description[i][0], value) \
-                    for i, value in enumerate(row)) for row in cursor.fetchall()]
-
-                if r:
-                    raise serializers.ValidationError(r)
-                return Response(status=status.HTTP_400_BAD_REQUEST)
+                query = "SELECT id, ((ACOS(SIN("+latitude+" * PI() / 180) * SIN(latitude * PI() / 180) + COS("+latitude+" * PI() / 180) * COS(latitude * PI() / 180) * COS(("+longitude+" - longitude) * PI() / 180)) * 180 / PI()) * 60 * 1.1515 * 1609.344) AS distance FROM street_lighting_luminaria GROUP BY id HAVING distance<='"+str(distance)+"' ORDER BY distance ASC LIMIT 0,20"
+                cursor.execute(query)
+                ids = [row[0] for row in cursor.fetchall()]
+                return Luminaria.objects.filter(id__in=ids)
             return Luminaria.objects.all()
         except:
             raise Exception("Error in get request params")
 
-class ElementsViewSet(viewsets.ViewSet):
+'''class ElementsViewSet(viewsets.ViewSet):
 
     def list(self, request):
         elements = Elements(
