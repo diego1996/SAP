@@ -56,15 +56,12 @@ def LuminariaView(request):
         raise Exception("Error in get request params")
 
 
-
-
-
-
 class LuminariaViewSet(mixins.ListModelMixin,
                     mixins.RetrieveModelMixin,
                     viewsets.GenericViewSet):
     queryset = Luminaria.objects.all()
     serializer_class = LuminariaSerializer
+    pagination_class = Pagination
 
     def get_queryset(self):
         try:
@@ -78,6 +75,94 @@ class LuminariaViewSet(mixins.ListModelMixin,
                 ids = [row[0] for row in cursor.fetchall()]
                 return Luminaria.objects.filter(id__in=ids)
             return Luminaria.objects.all()
+        except:
+            raise Exception("Error in get request params")
+
+class PosteViewSet(mixins.ListModelMixin,
+                    mixins.RetrieveModelMixin,
+                    viewsets.GenericViewSet):
+    queryset = Poste.objects.all()
+    serializer_class = PosteSerializer
+    pagination_class = Pagination
+
+    def get_queryset(self):
+        try:
+            latitude = self.request.query_params.get('latitude', None)
+            longitude = self.request.query_params.get('longitude', None)
+            distance = 50
+            if latitude and longitude:
+                cursor = connection.cursor()
+                query = "SELECT id, ((ACOS(SIN("+latitude+" * PI() / 180) * SIN(latitude * PI() / 180) + COS("+latitude+" * PI() / 180) * COS(latitude * PI() / 180) * COS(("+longitude+" - longitude) * PI() / 180)) * 180 / PI()) * 60 * 1.1515 * 1609.344) AS distance FROM street_lighting_poste GROUP BY id HAVING distance<='"+str(distance)+"' ORDER BY distance ASC LIMIT 0,20"
+                cursor.execute(query)
+                ids = [row[0] for row in cursor.fetchall()]
+                return Poste.objects.filter(id__in=ids)
+            return Poste.objects.all()
+        except:
+            raise Exception("Error in get request params")
+
+class RedViewSet(mixins.ListModelMixin,
+                    mixins.RetrieveModelMixin,
+                    viewsets.GenericViewSet):
+    queryset = Red.objects.all()
+    serializer_class = RedSerializer
+    pagination_class = Pagination
+
+    def get_queryset(self):
+        try:
+            latitude = self.request.query_params.get('latitude', None)
+            longitude = self.request.query_params.get('longitude', None)
+            distance = 50
+            if latitude and longitude:
+                cursor = connection.cursor()
+                query = "SELECT id, ((ACOS(SIN("+latitude+" * PI() / 180) * SIN(latitude * PI() / 180) + COS("+latitude+" * PI() / 180) * COS(latitude * PI() / 180) * COS(("+longitude+" - longitude) * PI() / 180)) * 180 / PI()) * 60 * 1.1515 * 1609.344) AS distance FROM street_lighting_red GROUP BY id HAVING distance<='"+str(distance)+"' ORDER BY distance ASC LIMIT 0,20"
+                cursor.execute(query)
+                ids = [row[0] for row in cursor.fetchall()]
+                return Red.objects.filter(id__in=ids)
+            return Red.objects.all()
+        except:
+            raise Exception("Error in get request params")
+
+class CamaraViewSet(mixins.ListModelMixin,
+                    mixins.RetrieveModelMixin,
+                    viewsets.GenericViewSet):
+    queryset = Camara.objects.all()
+    serializer_class = CamaraSerializer
+    pagination_class = Pagination
+
+    def get_queryset(self):
+        try:
+            latitude = self.request.query_params.get('latitude', None)
+            longitude = self.request.query_params.get('longitude', None)
+            distance = 50
+            if latitude and longitude:
+                cursor = connection.cursor()
+                query = "SELECT id, ((ACOS(SIN("+latitude+" * PI() / 180) * SIN(latitude * PI() / 180) + COS("+latitude+" * PI() / 180) * COS(latitude * PI() / 180) * COS(("+longitude+" - longitude) * PI() / 180)) * 180 / PI()) * 60 * 1.1515 * 1609.344) AS distance FROM street_lighting_camara GROUP BY id HAVING distance<='"+str(distance)+"' ORDER BY distance ASC LIMIT 0,20"
+                cursor.execute(query)
+                ids = [row[0] for row in cursor.fetchall()]
+                return Camara.objects.filter(id__in=ids)
+            return Camara.objects.all()
+        except:
+            raise Exception("Error in get request params")
+
+class TransformadorViewSet(mixins.ListModelMixin,
+                    mixins.RetrieveModelMixin,
+                    viewsets.GenericViewSet):
+    queryset = Transformador.objects.all()
+    serializer_class = TransformadorSerializer
+    pagination_class = Pagination
+
+    def get_queryset(self):
+        try:
+            latitude = self.request.query_params.get('latitude', None)
+            longitude = self.request.query_params.get('longitude', None)
+            distance = 50
+            if latitude and longitude:
+                cursor = connection.cursor()
+                query = "SELECT id, ((ACOS(SIN("+latitude+" * PI() / 180) * SIN(latitude * PI() / 180) + COS("+latitude+" * PI() / 180) * COS(latitude * PI() / 180) * COS(("+longitude+" - longitude) * PI() / 180)) * 180 / PI()) * 60 * 1.1515 * 1609.344) AS distance FROM street_lighting_transformador GROUP BY id HAVING distance<='"+str(distance)+"' ORDER BY distance ASC LIMIT 0,20"
+                cursor.execute(query)
+                ids = [row[0] for row in cursor.fetchall()]
+                return Transformador.objects.filter(id__in=ids)
+            return Transformador.objects.all()
         except:
             raise Exception("Error in get request params")
 
